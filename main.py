@@ -23,12 +23,7 @@ chrome_options.add_experimental_option("detach", True)
 
 driver = webdriver.Chrome(options=chrome_options)
 
-driver.get(
-    "https://www.linkedin.com/jobs/search/?f_LF=f_AL&geoId=102257491"
-    "&keywords=python%20developer"
-    "&location=London%2C%20England%2C%20United%20Kingdom"
-    "&redirect=false&position=1&pageNum=0"
-)
+driver.get("https://www.linkedin.com")
 
 time.sleep(2)
 sign_in_button = driver.find_element(By.LINK_TEXT, value="Sign in")
@@ -42,6 +37,13 @@ password = driver.find_element(By.ID, value="password")
 password.send_keys(ACCOUNT_PASSWORD)
 password.send_keys(Keys.ENTER)
 
+time.sleep(30)
+driver.get(
+    "https://www.linkedin.com/jobs/search/?f_LF=f_AL&geoId=102257491"
+    "&keywords=python%20developer"
+    "&location=London%2C%20England%2C%20United%20Kingdom"
+    "&redirect=false&position=1&pageNum=0"
+)
 
 time.sleep(5)
 all_listings = driver.find_elements(by=By.CSS_SELECTOR, value=".job-card-container--clickable")
@@ -51,7 +53,7 @@ for listing in all_listings:
     listing.click()
     time.sleep(2)
     try:
-        apply_button = driver.find_element(by=By.CSS_SELECTOR, value=".jobs-s-apply button")
+        apply_button = driver.find_element(by=By.CSS_SELECTOR, value=".button jobss-apply-button")
         apply_button.click()
 
         time.sleep(5)
