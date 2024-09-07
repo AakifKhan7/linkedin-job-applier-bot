@@ -4,8 +4,8 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 import time
 
-ACCOUNT_EMAIL = "aakifkhan.100daysofcode@gmail.com"
-ACCOUNT_PASSWORD = '4ViZ%N&aT4op$gu&'
+ACCOUNT_EMAIL = "Your email"
+ACCOUNT_PASSWORD = 'YOUR PASSWORD'
 PHONE = "1234567890"
 
 
